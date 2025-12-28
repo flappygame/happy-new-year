@@ -59,21 +59,21 @@ function updateCountdown() {
 }
 setInterval(updateCountdown, 1000);
 
-// Fireworks
+// Fireworks function
 function celebrate() {
-    for(let i=0; i<30; i++){
+    for(let i=0;i<50;i++){
         const fire = document.createElement("div");
         fire.className = "firework";
         fire.style.left = Math.random()*window.innerWidth + "px";
         fire.style.top = Math.random()*window.innerHeight + "px";
-        fire.style.background = `hsl(${Math.random()*360},100%,60%)`;
+        fire.style.background = `hsl(${Math.random()*360},100%,50%)`;
         document.body.appendChild(fire);
 
         setTimeout(()=> fire.remove(), 1500);
     }
 }
 
-// Fix button click
+// Fireworks button click
 document.getElementById("celebrateBtn").addEventListener("click", celebrate);
 </script>
 
