@@ -1,8 +1,4 @@
-* {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body{
     height:100vh;
@@ -38,21 +34,16 @@ body{
 
 /* Glow heading */
 .glow{
-    font-size:3.2rem;
+    font-size:3rem;
     animation: glow 2s infinite alternate;
 }
-
 @keyframes glow{
     from{text-shadow:0 0 10px gold;}
     to{text-shadow:0 0 30px orange;}
 }
 
 /* Typing effect */
-.typing{
-    margin:20px 0;
-    font-size:1.6rem;
-    color:gold;
-}
+.typing{ margin:20px 0; font-size:1.5rem; color:gold; }
 
 /* Messages */
 .messages p{
@@ -60,7 +51,6 @@ body{
     font-size:1.1rem;
     animation: float 4s infinite;
 }
-
 @keyframes float{
     0%{transform:translateY(0);opacity:1;}
     50%{transform:translateY(-12px);opacity:0.7;}
@@ -68,11 +58,7 @@ body{
 }
 
 /* Countdown */
-.countdown{
-    margin:20px 0;
-    font-size:1.3rem;
-    letter-spacing:2px;
-}
+.countdown{ margin:20px 0; font-size:1.3rem; letter-spacing:2px; }
 
 /* Button */
 button{
@@ -86,11 +72,7 @@ button{
     cursor:pointer;
     transition:0.3s;
 }
-
-button:hover{
-    background:orange;
-    transform:scale(1.1);
-}
+button:hover{ background:orange; transform:scale(1.1); }
 
 /* Fireworks */
 .firework{
@@ -100,7 +82,6 @@ button:hover{
     border-radius:50%;
     animation: explode 1.5s linear;
 }
-
 @keyframes explode{
     from{transform:scale(1);opacity:1;}
     to{transform:scale(25);opacity:0;}
