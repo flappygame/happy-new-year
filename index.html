@@ -8,10 +8,11 @@
 </head>
 
 <body>
-  
 
+<!-- Stars background -->
 <div class="stars"></div>
 
+<!-- Main content -->
 <div class="container">
     <h1 class="glow">🎉 Happy New Year 2026 🎉</h1>
     <h2 class="typing" id="typing"></h2>
@@ -26,16 +27,15 @@
 
     <div class="countdown" id="countdown"></div>
 
-    <button onclick="celebrate()">Celebrate 🎆</button>
+    <button id="celebrateBtn">Celebrate 🎆</button>
 </div>
 
 <script>
-/* Typing Effect */
+// Typing effect
 const text = "Wishing you peace, success & happiness ✨";
 let index = 0;
-
 function typingEffect() {
-    if (index < text.length) {
+    if(index < text.length){
         document.getElementById("typing").innerHTML += text.charAt(index);
         index++;
         setTimeout(typingEffect, 70);
@@ -43,35 +43,38 @@ function typingEffect() {
 }
 typingEffect();
 
-/* Countdown Timer */
+// Countdown timer
 function updateCountdown() {
     const newYear = new Date("January 1, 2026 00:00:00").getTime();
     const now = new Date().getTime();
     const diff = newYear - now;
 
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const m = Math.floor((diff / (1000 * 60)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    const s = Math.floor((diff/1000) % 60);
 
     document.getElementById("countdown").innerHTML =
         `⏳ ${d} Days ${h} Hours ${m} Minutes ${s} Seconds`;
 }
 setInterval(updateCountdown, 1000);
 
-/* Fireworks */
+// Fireworks
 function celebrate() {
-    for (let i = 0; i < 30; i++) {
-        let f = document.createElement("div");
-        f.className = "firework";
-        f.style.left = Math.random() * window.innerWidth + "px";
-        f.style.top = Math.random() * window.innerHeight + "px";
-        f.style.background = `hsl(${Math.random()*360},100%,60%)`;
-        document.body.appendChild(f);
+    for(let i=0; i<30; i++){
+        const fire = document.createElement("div");
+        fire.className = "firework";
+        fire.style.left = Math.random()*window.innerWidth + "px";
+        fire.style.top = Math.random()*window.innerHeight + "px";
+        fire.style.background = `hsl(${Math.random()*360},100%,60%)`;
+        document.body.appendChild(fire);
 
-        setTimeout(() => f.remove(), 1500);
+        setTimeout(()=> fire.remove(), 1500);
     }
 }
+
+// Fix button click
+document.getElementById("celebrateBtn").addEventListener("click", celebrate);
 </script>
 
 </body>
