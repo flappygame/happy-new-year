@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year 2026 🎆</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="container">
+    <h1 class="glow">🎉 Happy New Year 2026 🎉</h1>
+    <h2 class="typing" id="typing"></h2>
+
+    <div class="messages">
+        <p>✨ New year, new dreams</p>
+        <p>🚀 New year, new success</p>
+        <p>❤️ New year, new happiness</p>
+        <p>💰 New year, more blessings</p>
+        <p>🌙 Allah aap ko kamyabi ata farmaye</p>
+    </div>
+
+    <div class="countdown" id="countdown"></div>
+
+    <button onclick="celebrate()">Celebrate 🎆</button>
+</div>
+
+<script>
+/* Typing Effect */
+const text = "Wishing you peace, success & happiness ✨";
+let index = 0;
+
+function typingEffect() {
+    if (index < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typingEffect, 70);
+    }
+}
+typingEffect();
+
+/* Countdown Timer */
+function updateCountdown() {
+    const newYear = new Date("January 1, 2026 00:00:00").getTime();
+    const now = new Date().getTime();
+    const diff = newYear - now;
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("countdown").innerHTML =
+        `⏳ ${d} Days ${h} Hours ${m} Minutes ${s} Seconds`;
+}
+setInterval(updateCountdown, 1000);
+
+/* Fireworks */
+function celebrate() {
+    for (let i = 0; i < 30; i++) {
+        let f = document.createElement("div");
+        f.className = "firework";
+        f.style.left = Math.random() * window.innerWidth + "px";
+        f.style.top = Math.random() * window.innerHeight + "px";
+        f.style.background = `hsl(${Math.random()*360},100%,60%)`;
+        document.body.appendChild(f);
+
+        setTimeout(() => f.remove(), 1500);
+    }
+}
+</script>
+
+</body>
+</html>
